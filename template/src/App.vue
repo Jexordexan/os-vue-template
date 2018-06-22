@@ -8,20 +8,9 @@
         class="site-logo" 
         src="src/assets/onshape-logo-white.svg" 
         alt="">
-      <h3>Icon Viewer</h3>
-      <div class="grow"/>
-      <button 
-        :class="{'pressed':showSidebar}" 
-        class="is-button" 
-        @click="showSidebar = !showSidebar">
-        <SvgIcon 
-          icon="filter-tab-button" 
-          size="30"/>
-      </button>
     </div>
-    <IconViewer 
-      :raw-icons="iconHtml" 
-      :show-sidebar="showSidebar" />
+    <!-- Replace IconViewer with your own component! -->
+    <IconViewer :raw-icons="iconHtml"/>
   </div>
 </template>
 
@@ -40,7 +29,6 @@ import IconViewer from 'icon-viewer/IconViewer.vue';
 })
 export default class App extends Vue {
   public iconHtml = '';
-  public showSidebar = true;
   public created() {
     axios
       .get('node_modules/@onshape/onshape-icons/dist/icons-custom.min.svg')

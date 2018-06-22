@@ -30,6 +30,8 @@
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "moment": "^2.20.1",
+    "postcss": "^6.0.23",
+    "postcss-loader": "^2.1.5",
     "style-loader": "^0.18.2",
     "ts-loader": "^3.2.0",
     "tslint": "^4.0.0",

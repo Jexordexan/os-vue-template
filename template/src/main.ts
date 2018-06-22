@@ -1,4 +1,5 @@
 import './styles.less';
+import './flexbox.less'
 
 import App from 'App.vue';
 import SvgIcon from 'components/SvgIcon';

@@ -1,7 +1,6 @@
 <template>
   <div class="row">
     <div 
-      v-if="showSidebar" 
       class="col sidebar">
       <label class="p10 row">
         <input 
@@ -73,7 +72,7 @@
         <SvgIcon 
           :icon="icon" 
           :size="iconSize"/>
-        <div class="icon-label">{{ icon }}</div>
+        <div class="icon-label">\{{ icon }}</div>
       </div>
     </div>
   </div>
@@ -104,8 +103,7 @@ function getMatches(str: string, regex: RegExp, index = 1) {
 
 @Component({
   props: {
-    rawIcons: String,
-    showSidebar: Boolean
+    rawIcons: String
   }
 })
 export default class IconViewer extends Vue {

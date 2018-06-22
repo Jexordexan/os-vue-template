@@ -1,0 +1,75 @@
+:root {
+  --color-primary: #333;
+  --color-secondary: #1b5faa;
+  --color-background: #FFF;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-primary);
+}
+
+// Apply rules for classes
+svg .os-svg-primary-fill {
+  fill: currentColor !important;
+}
+
+svg .os-svg-secondary-fill {
+  fill: var(--color-secondary) !important;
+}
+
+svg .os-svg-background-fill {
+  fill: var(--color-background) !important;
+}
+
+.text-input {
+  font-size: inherit;
+  padding: 5px;
+}
+
+.icon-wrapper {
+  width: 200px;
+  min-height: 100px;
+  margin: 10px;
+  padding: 5px;
+  background: rgba(128,128,128,.1);
+
+  .svg-icon {
+    margin: 20px;
+  }
+
+  .icon-label {
+    word-break: break-all;
+    font-family: monospace;
+  }
+}
+
+.control {
+  padding: 10px;
+  cursor: pointer;
+  &:hover {
+    background: #DDD;
+  }
+  span {
+    text-align: right;
+    display: inline-block;
+    width: 100px;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  background: #eeeeee;
+  color: #333;
+
+  hr {
+    display: block;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    margin: 0;
+  }
+}

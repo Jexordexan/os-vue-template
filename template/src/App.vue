@@ -1,34 +1,40 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    {{#router}}
-    <router-view/>
-    {{else}}
-    <HelloWorld/>
-    {{/router}}
+    <div 
+      style="display:none" 
+      v-html="iconHtml"></div>
+    <div class="navbar row">
+      <img 
+        class="site-logo" 
+        src="src/assets/onshape-logo-white.svg" 
+        alt=""/>
+    </div>
+    <!-- Replace IconViewer with your own component! -->
+    <IconViewer :rawIcons="iconHtml"/>
   </div>
 </template>
 
-<script>
-{{#unless router}}
-import HelloWorld from './components/HelloWorld'
+<script lang="ts">
+import axios from 'axios';
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
-{{/unless}}
-export default {
-  name: 'App'{{#router}}{{else}},
+import IconViewer from 'icon-viewer/IconViewer.vue';
+
+@Component({
+  name: 'app',
   components: {
-    HelloWorld
-  }{{/router}}
+    IconViewer
+  }
+})
+export default class App extends Vue {
+  public iconHtml = '';
+  public created() {
+    axios
+      .get('node_modules/@onshape/onshape-icons/dist/icons-custom.min.svg')
+      .then(response => {
+        this.iconHtml = response.data;
+      });
+  }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

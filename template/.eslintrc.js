@@ -1,74 +1,79 @@
-// https://eslint.org/docs/user-guide/configuring
-
 module.exports = {
-  root: true,
+  parser: 'vue-eslint-parser',
   parserOptions: {
-    parser: 'babel-eslint'
-  },
-  env: {
-    browser: true,
-  },
-  {{#if_eq lintConfig "standard"}}
-  extends: [
-    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    'plugin:vue/essential', 
-    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-    'standard'
-  ],
-  {{/if_eq}}
-  {{#if_eq lintConfig "airbnb"}}
-  // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-  // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-  extends: ['plugin:vue/essential', 'airbnb-base'],
-  {{/if_eq}}
-  {{#if_eq lintConfig "none"}}
-  // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-  // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-  extends: ['plugin:vue/essential'],
-  {{/if_eq}}
-  // required to lint *.vue files
-  plugins: [
-    'vue'
-  ],
-  {{#if_eq lintConfig "airbnb"}}
-  // check if imports actually resolve
-  settings: {
-    'import/resolver': {
-      webpack: {
-        config: 'build/webpack.base.conf.js'
-      }
+    parser: 'typescript-eslint-parser',
+    ecmaFeatures: {
+      jsx: false
     }
   },
-  {{/if_eq}}
-  // add your custom rules here
+  extends: ['plugin:vue/recommended', 'typescript'],
   rules: {
-    {{#if_eq lintConfig "standard"}}
-    // allow async-await
-    'generator-star-spacing': 'off',
-    {{/if_eq}}
-    {{#if_eq lintConfig "airbnb"}}
-    // don't require .vue extension when importing
-    'import/extensions': ['error', 'always', {
-      js: 'never',
-      vue: 'never'
-    }],
-    // disallow reassignment of function parameters
-    // disallow parameter object manipulation except for specific exclusions
-    'no-param-reassign': ['error', {
-      props: true,
-      ignorePropertyModificationsFor: [
-        'state', // for vuex state
-        'acc', // for reduce accumulators
-        'e' // for e.returnvalue
-      ]
-    }],
-    // allow optionalDependencies
-    'import/no-extraneous-dependencies': ['error', {
-      optionalDependencies: ['test/unit/index.js']
-    }],
-    {{/if_eq}}
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    // Overrides from Onshape config for compatibility with Typescript/Vue code
+    indent: 'off', // Doesn't play well with Typescript decorators
+    'no-undef': 'off', // Doesn't play well with ES6 class properties
+    'space-infix-ops': 'off', // Doesn't play well with inline type annotations
+    'require-jsdoc': 'off', // Turned on by one of the templates
+
+    // Additional ES6 rules (Adapted from tslint.json)
+    'no-var': 'error',
+    'prefer-const': 'error',
+    'no-eval': 'error',
+    'no-inner-html': 'off',
+    'quote-props': ['error', 'consistent-as-needed', { keywords: true }],
+    'guard-for-in': 'error',
+    'no-bitwise': 'off',
+    'no-console': 'error',
+    'no-constant-condition': 'error',
+    'no-control-regex': 'error',
+    'no-debugger': 'error',
+    'no-duplicate-case': 'error',
+    'no-empty': 'error',
+    'no-for-in-array': 'off',
+    'no-increment-decrement': 'off',
+    'no-invalid-regexp': 'error',
+    'no-regex-spaces': 'error',
+    'no-sparse-arrays': 'error',
+    'no-stateless-class': 'off',
+    'no-extra-bind': 'error',
+    'no-unsafe-finally': 'error',
+
+    // Vue rules
+    'vue/attributes-order': 'off',
+    'vue/max-attributes-per-line': 'off',
+    'vue/attribute-hyphenation': ['error', 'never'],
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: {
+          void: 'always',
+          normal: 'never',
+          component: 'always'
+        },
+        svg: 'always',
+        math: 'always'
+      }
+    ],
+
+    // Typescript rules
+    'typescript/class-name-casing': true,
+    'typescript/interface-name-prefix': false,
+    'typescript/no-angle-bracket-type-assertion': false,
+    'typescript/no-array-constructor': true,
+    'typescript/no-explicit-any': true,
+    'typescript/no-inferrable-types': false,
+    'typescript/no-namespace': false,
+    'typescript/no-var-requires': true,
+    'typescript/member-ordering': [false, { order: 'statics-first' }],
+    'typescript/member-delimiter-style': {
+      delimiter: 'semi',
+      requireLast: true,
+      overrides: {
+        typeLiteral: {
+          delimiter: 'semi',
+          requireLast: false
+        }
+      }
+    },
+    'typescript/type-annotation-spacing': true
   }
-}
+};

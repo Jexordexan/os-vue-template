@@ -1,0 +1,288 @@
+// Flex Container Properties
+
+.os-flex(@direction: row) {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: @direction;
+  flex-direction: @direction;
+}
+
+.os-inline-flex(@direction: row) {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-flex-direction: @direction;
+  flex-direction: @direction;
+}
+
+.os-flex-flow(@direction: row; @wrap: nowrap) {
+  -webkit-flex-flow: @arguments;
+  flex-flow: @arguments;
+}
+
+.os-flex-wrap(@wrap: wrap) {
+  -webkit-flex-wrap: @wrap;
+  flex-wrap: @wrap;
+}
+
+.os-flex-justify-content(@justification: flex-start) {
+  -webkit-justify-content: @justification;
+  justify-content: @justification;
+}
+
+.os-flex-align-content(@alignment: stretch) {
+  -webkit-align-content: @alignment;
+  align-content: @alignment;
+}
+
+.os-flex-align-items(@alignment: stretch) {
+  -webkit-align-items: @alignment;
+  align-items: @alignment;
+}
+
+.os-flex-center-content() {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.os-flex-item-percent-width(@percent: 0) {
+  .os-flex-item-grow(0);
+  width: @percent;
+}
+
+// Flex Item Properties
+
+.os-flex-item(@grow: 0; @shrink: 1; @basis: auto) {
+  -webkit-flex: @arguments;
+  flex: @arguments;
+}
+
+.os-flex-item-order(@integer: 1) {
+  -webkit-order: @integer;
+  order: @integer;
+}
+
+.os-flex-item-grow(@growProportion: 1) {
+  -webkit-flex-grow: @growProportion;
+  flex-grow: @growProportion;
+}
+
+.os-flex-item-shrink(@shrinkProportion: 1) {
+  -webkit-flex-shrink: @shrinkProportion;
+  flex-shrink: @shrinkProportion;
+}
+
+.os-flex-item-basis(@basis: auto) {
+  -webkit-flex-basis: @basis;
+  flex-basis: @basis;
+}
+
+.os-flex-item-align(@alignment: auto) {
+  -webkit-align-self: @alignment;
+  align-self: @alignment;
+}
+
+.os-flex-wrapper {
+  .os-flex(column);
+}
+
+// Flex Container Classes
+.os-row {
+  // Horizontal main axis
+  .os-flex(row);
+}
+.os-col {
+  // Vertical main axis
+  .os-flex(column);
+}
+
+.os-center-content {
+  // Center all content to the middle of the element
+  .os-flex-center-content;
+}
+
+.os-justify-start {
+  //  Items align to the beginning of the main axis
+  //  +---------------------------------------------+
+  //  |+--++-----++---+                             |
+  //  ||  ||     ||   |                             |---> Main axis
+  //  |+--++-----++---+                             |
+  //  +---------------------------------------------+
+  .os-flex-justify-content(flex-start);
+}
+.os-justify-center {
+  //  Items align to the center of the main axis
+  //  +---------------------------------------------+
+  //  |              +--++-----++---+               |
+  //  |              |  ||     ||   |               |---> Main axis
+  //  |              +--++-----++---+               |
+  //  +---------------------------------------------+
+  .os-flex-justify-content(center);
+}
+.os-justify-end {
+  //  Items align to the end of the main axis
+  //  +---------------------------------------------+
+  //  |                             +--++-----++---+|
+  //  |                             |  ||     ||   ||---> Main axis
+  //  |                             +--++-----++---+|
+  //  +---------------------------------------------+
+  .os-flex-justify-content(flex-end);
+}
+.os-justify-around {
+  //  Items separate evenly along the main axis
+  //  +---------------------------------------------+
+  //  |        +--+       +-----+       +---+       |
+  //  |        |  |       |     |       |   |       |---> Main axis
+  //  |        +--+       +-----+       +---+       |
+  //  +---------------------------------------------+
+  .os-flex-justify-content(space-around);
+}
+.os-justify-between {
+  //  Items separate along the main axis, but flush to both ends
+  //  +---------------------------------------------+
+  //  |+--+               +-----+              +---+|
+  //  ||  |               |     |              |   ||---> Main axis
+  //  |+--+               +-----+              +---+|
+  //  +---------------------------------------------+
+  .os-flex-justify-content(space-between);
+}
+
+.os-align-start {
+  // Items align to the beginning of the cross axis
+  //  +---------------------------------------------+
+  //  |+--+               +-----+              +---+|
+  //  ||  |               |     |              |   ||
+  //  |+--+               +-----+              +---+|---> Main axis
+  //  |                                             |
+  //  |                                             |
+  //  +---------------------------------------------+
+  .os-flex-align-items(flex-start);
+}
+.os-align-center {
+  // Items align to the center of the cross axis
+  //  +---------------------------------------------+
+  //  |                                             |
+  //  |+--+               +-----+              +---+|
+  //  ||  |               |     |              |   ||---> Main axis
+  //  |+--+               +-----+              +---+|
+  //  |                                             |
+  //  +---------------------------------------------+
+  .os-flex-align-items(center);
+}
+.os-align-end {
+  // Items align to the end of the cross axis
+  //  +---------------------------------------------+
+  //  |                                             |
+  //  |                                             |
+  //  |+--+               +-----+              +---+|---> Main axis
+  //  ||  |               |     |              |   ||
+  //  |+--+               +-----+              +---+|
+  //  +---------------------------------------------+
+  .os-flex-align-items(flex-end);
+}
+
+@imp: ~'!important';
+
+.os-align-baseline {
+  // Items align along their respective baselines
+  .os-flex-align-items(baseline);
+}
+
+.os-wrap {
+  // Overflowing content will wrap to the next line before shrinking
+  .os-flex-wrap(wrap @imp);
+}
+.os-no-wrap {
+  // Overflowing content will stay on one line and shrink to fit
+  .os-flex-wrap(nowrap @imp);
+}
+
+// Flex Item Classes
+.os-shrink {
+  // Item will shrink if the container is too small
+  .os-flex-item-shrink;
+}
+.os-grow {
+  // Item will occupy any empty space along the main axis
+  .os-flex-item-grow;
+}
+
+.os-fit {
+  flex: 1 1 auto;
+  width: 0;
+}
+
+.os-fit,
+.os-scroll-parent {
+  // Fix so a child with overflow auto|scroll wont influence the height of the parent
+  // Must be applied all the way up the flex chain
+  // https://stackoverflow.com/a/28639686
+  min-height: 0;
+  min-width: 0;
+}
+
+.os-block {
+  // Item will take an entire line if possible (Parent must wrap content)
+  .os-flex-item-grow;
+  .os-flex-item-basis(100%);
+}
+
+.os-shrink-first {
+  // Item will start to shrink before any other element
+  .os-flex-item-basis(0%);
+  .os-flex-item-shrink(99);
+}
+
+.os-no-shrink {
+  // Item will not shrink past the flex-basis value
+  .os-flex-item-shrink(0);
+}
+.os-no-grow {
+  // Item will not grow past the flex-basis value
+  .os-flex-item-grow(0);
+}
+
+.os-pin-start {
+  // Item will position itself at the beginning of the container's cross axis
+  .os-flex-item-align(flex-start);
+}
+.os-pin-end {
+  // Item will position itself at the end of the container's cross axis
+  .os-flex-item-align(flex-end);
+}
+.os-pin-center {
+  // Item will position itself at the center of the container's cross axis
+  .os-flex-item-align(center);
+}
+.os-pin-across {
+  // Item will stretch itself along the container's cross axis
+  .os-flex-item-align(stretch);
+}
+.os-pin-baseline {
+  // Item will stretch itself along the container's cross axis
+  .os-flex-item-align(baseline);
+}
+
+.os-pin-left {
+  // The item will push itself to the left of the container
+  margin-right: auto !important;
+}
+.os-pin-right {
+  // The item will push itself to the right of the container
+  margin-left: auto !important;
+}
+.os-pin-front {
+  // The item will become the first child displayed
+  .os-flex-item-order(-1);
+}
+.os-pin-back {
+  // The item will become the last child displayed
+  .os-flex-item-order(99);
+}
+
+.os-flex-width-35-percent {
+  .os-flex-item-percent-width(35%);
+}

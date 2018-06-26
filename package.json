@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-template-webpack",
-  "version": "1.0.2",
+  "version": "1.4.0",
   "license": "MIT",
   "description": "A full-featured Webpack Typescript setup with hot-reload, lint-on-save.",
   "devDependencies": {

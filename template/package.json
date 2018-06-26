@@ -11,7 +11,8 @@
     "tslint:fix": "npm run tslint -- --fix",
     "eslint": "eslint 'src/**/*.vue'",
     "eslint:fix": "npm run eslint -- --fix",
-    "lint": "npm run eslint && npm run tslint"
+    "lint": "npm run eslint && npm run tslint",
+    "test": "npm run lint"
   },
   "dependencies": {
     "@onshape/onshape-icons": "^1.0.25",

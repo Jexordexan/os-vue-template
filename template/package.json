@@ -1,5 +1,5 @@
 {
-  "name": "{{ name }}",
+  "name": "os-vue-project",
   "description": "{{ description }}",
   "version": "1.0.0",
   "author": "{{ author }}",
@@ -10,7 +10,8 @@
     "tslint": "tslint -c tslint.json 'src/**/*.ts'",
     "tslint:fix": "npm run tslint -- --fix",
     "eslint": "eslint 'src/**/*.vue'",
-    "eslint:fix": "npm run eslint -- --fix"
+    "eslint:fix": "npm run eslint -- --fix",
+    "lint": "npm run eslint && npm run tslint"
   },
   "dependencies": {
     "@onshape/onshape-icons": "^1.0.25",
@@ -39,7 +40,7 @@
     "ts-loader": "^3.2.0",
     "tslint": "^4.0.0",
     "tslint-microsoft-contrib": "^4.0.0",
-    "typescript": "^2.9.2",
+    "typescript": "2.6.x",
     "typescript-eslint-parser": "^11.0.0",
     "vue-class-component": "^6.0.0",
     "vue-loader": "^11.1.4",

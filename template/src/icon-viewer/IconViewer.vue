@@ -5,50 +5,51 @@
       <label class="p10 row">
         <input 
           v-model="search" 
+          v-focus
           class="text-input grow" 
           type="search" 
-          placeholder="Search">
+          placeholder="Search"/>
       </label>
-      <hr>
+      <hr/>
       <label class="control">
         <span>20x20</span>
         <input 
           v-model="iconSize" 
           type="radio" 
-          value="20">
+          value="20"/>
       </label>
       <label class="control">
         <span>40x40</span>
         <input 
           v-model="iconSize" 
           type="radio" 
-          value="40">
+          value="40"/>
       </label>
       <label class="control">
         <span>80x80</span>
         <input 
           v-model="iconSize" 
           type="radio" 
-          value="80">
+          value="80"/>
       </label>
-      <hr>
+      <hr/>
       <label class="control">
         <span>Primary:</span>
         <input 
           v-model="primary" 
-          type="color">
+          type="color"/>
       </label>
       <label class="control">
         <span>Secondary:</span>
         <input 
           v-model="secondary" 
-          type="color">
+          type="color"/>
       </label>
       <label class="control">
         <span>Background:</span>
         <input 
           v-model="background" 
-          type="color">
+          type="color"/>
       </label>
       <button 
         class="tool is-button" 
@@ -154,7 +155,7 @@ export default class IconViewer extends Vue {
   public invertColors() {
     const primary = this.primary;
     const background = this.background;
-    var erger = 'http://www.w3.org/2000/svg';
+    const erger = 'http://www.w3.org/2000/svg';
 
     this.primary = background;
     this.background = primary;

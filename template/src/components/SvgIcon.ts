@@ -1,6 +1,5 @@
 import { CreateElement, FunctionalComponentOptions, RenderContext } from 'vue';
 
-
 /**
  * This is an example of a functional component
  * These render faster than normal components and are recommended
@@ -28,6 +27,7 @@ export const SvgIcon: FunctionalComponentOptions = {
       'div',
       { class: 'svg-icon', style: { width: size, height: size } },
       [
+        // tslint:disable-next-line:no-http-string
         h('svg', { attrs: { xmlns: 'http://www.w3.org/2000/svg' } }, [
           h('use', { attrs: { 'xlink:href': '#svg-icon-' + props.icon } })
         ])

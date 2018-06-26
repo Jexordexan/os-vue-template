@@ -2,15 +2,15 @@
   <div id="app">
     <div 
       style="display:none" 
-      v-html="iconHtml"/>
+      v-html="iconHtml"></div>
     <div class="navbar row">
       <img 
         class="site-logo" 
         src="src/assets/onshape-logo-white.svg" 
-        alt="">
+        alt=""/>
     </div>
     <!-- Replace IconViewer with your own component! -->
-    <IconViewer :raw-icons="iconHtml"/>
+    <IconViewer :rawIcons="iconHtml"/>
   </div>
 </template>
 

@@ -62,7 +62,7 @@
       </button>
     </div>
     <div 
-      :style="{marginRight: showSidebar ? '300px' : '0'}" 
+      :style="{marginRight: '300px'}" 
       class="row wrap icon-list">
       <div 
         v-for="icon in filteredIcons" 

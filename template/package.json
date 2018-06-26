@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "tslint": "tslint -c tslint.json 'src/**/*.ts'",
     "tslint:fix": "npm run tslint -- --fix",
-    "eslint": "eslint 'src/**/*.{ts,vue}'",
+    "eslint": "eslint 'src/**/*.vue'",
     "eslint:fix": "npm run eslint -- --fix"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "awesome-typescript-loader": "^3.1.2",
     "cross-env": "^3.0.0",
     "css-loader": "^0.25.0",
+    "cssnano": "^3.10.0",
     "eslint": "^4.14.0",
     "eslint-config-typescript": "^1.0.2",
     "eslint-plugin-typescript": "^0.8.1",
@@ -31,7 +32,9 @@
     "less-loader": "^4.1.0",
     "moment": "^2.20.1",
     "postcss": "^6.0.23",
+    "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.5",
+    "postcss-preset-env": "^5.2.1",
     "style-loader": "^0.18.2",
     "ts-loader": "^3.2.0",
     "tslint": "^4.0.0",

@@ -17,7 +17,9 @@
   "dependencies": {
     "@onshape/onshape-icons": "^1.0.25",
     "axios": "^0.16.2",
-    "vue": "^2.5.13"
+    "rxjs": "^5.5.2",
+    "vue": "^2.5.13",
+    "vue-rx": "^5.0.0"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^3.1.2",
